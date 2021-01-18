@@ -1,0 +1,19 @@
+on: action
+name: deploy
+jobs:
+  deploy:
+    name: ci and cd
+    run-on: ubuntu-latest
+    steps:
+
+      uses: actions/docker-build-push-gcr-update-gke-deployment-action@v1.4
+      with:
+        service_account: ${{ secrests.GCLOUD_AUTH }} 
+        zone: 'us-central1-c'
+        project_id: 'careful-ensign-302119'
+        registry: 'gcr.io'
+        image_name: 'serSalas/mi-nginx'
+        cluster: 'cluster1'
+        namespace: 'dev'
+        deployment: 'nginx-2'
+        container: 'serSalas/mi-nginx'
