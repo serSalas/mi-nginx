@@ -11,7 +11,7 @@ jobs:
           zone: 'us-central1-c'
           project_id: 'careful-ensign-302119'
           registry: 'gcr.io'
-          image_name: 'mi-nginx'
+          image_name: 'github.com/sersalas/mi-nginx'
           cluster: 'cluster1'
           namespace: 'default'
           deployment: 'nginx-2'
