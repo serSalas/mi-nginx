@@ -3,7 +3,7 @@ name: deploy
 jobs:
   deploy:
     name: ci and cd
-    run-on: ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/docker-build-push-gcr-update-gke-deployment-action@v1.4
         with:
