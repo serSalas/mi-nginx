@@ -55,7 +55,6 @@ jobs:
     - name: Install Helm
       run: |
         curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
-    # - name: Deploy
       #  run: |-
   #      gcloud container clusters get-credentials cluster1 \
    #       --zone us-central1-c \
