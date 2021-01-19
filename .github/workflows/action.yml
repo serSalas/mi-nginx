@@ -77,4 +77,4 @@ jobs:
     #    APPLICATION_CREDENTIALS: ${{ secrets.GCLOUD_AUTH }}
      #   CLUSTER_NAME: cluster1
       #  ZONE_NAME: us-central1-c
-	gcloud container clusters get-credentials "cluster1" --zone "us-central1-c" --project "careful-ensign-302119" && gcloud components install kubectl && kubectl -n "default" set image deployment/"nginx-2" "mi-nginx-1"="gcr.io/careful-ensign-302119/github.com/sersalas/mi-nginx:latest"
+        gcloud container clusters get-credentials "cluster1" --zone "us-central1-c" --project "careful-ensign-302119" && gcloud components install kubectl && kubectl -n "default" set image deployment/"nginx-2" "mi-nginx-1"="gcr.io/careful-ensign-302119/github.com/sersalas/mi-nginx:latest"
