@@ -77,5 +77,3 @@ jobs:
         APPLICATION_CREDENTIALS: ${{ secrets.GCLOUD_AUTH }}
         CLUSTER_NAME: cluster1
         ZONE_NAME: us-central1-c
-      with:
-        args: apply -f packaging/k8s/manifests/ -n staging
