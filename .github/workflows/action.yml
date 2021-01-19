@@ -56,17 +56,26 @@ jobs:
       run: |
         curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
     # Deploy the Docker image to the GKE cluster
-    - name: Deploy
-      run: |-
-        gcloud container clusters get-credentials cluster1 \
-          --zone us-central1-c \
-          --project careful-ensign-302119
-        helm upgrade careful-ensign-302119 careful-ensign-302119-cluster/ \
+#    - name: Deploy
+ #     run: |-
+  #      gcloud container clusters get-credentials cluster1 \
+   #       --zone us-central1-c \
+    #      --project careful-ensign-302119
+     #   helm upgrade careful-ensign-302119 careful-ensign-302119-cluster/ \
         #--set randocats.image.tag=$GITHUB_SHA \
-        --wait
+      #  --wait
         #kubectl rollout status deployment/nginx-2
         #kubectl get services -o wide	
         #./kustomize edit set image gcr.io/PROJECT_ID/IMAGE:TAG=gcr.io/$PROJECT_ID/$IMAGE:$GITHUB_SHA
         #./kustomize build . | kubectl apply -f -
         #kubectl rollout status deployment/$DEPLOYMENT_NAME
         #kubectl get services -o wide
+    - name: kubectl - Google Cloud GKE cluster.
+      uses: ameydev/gke-kubectl-action@master
+      env:
+        PROJECT_ID: careful-ensign-302119
+        APPLICATION_CREDENTIALS: ${{ secrets.GCLOUD_AUTH }}
+        CLUSTER_NAME: cluster1
+        ZONE_NAME: us-central1-c
+      with:
+        args: apply -f packaging/k8s/manifests/ -n staging
