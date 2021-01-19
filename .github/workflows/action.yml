@@ -60,7 +60,7 @@ jobs:
     # Deploy the Docker image to the GKE cluster
     - name: Deploy
       run: |-
-        gcloud container clusters get-credentials "cluster1" --zone "us-central1-c" --project "careful-ensign-302119" && gcloud components install kubectl && kubectl -n "default" set image deployment/"nginx-2" "mio-nginx"="gcr.io/careful-ensign-302119/mio-nginx"
+        gcloud container clusters get-credentials "cluster1" --zone "us-central1-c" --project "careful-ensign-302119" && gcloud components install kubectl && kubectl -n "default" set image deployment/"nginx-2" mio-nginx="gcr.io/careful-ensign-302119/mio-nginx"
         #./kustomize edit set image gcr.io/PROJECT_ID/IMAGE:TAG=gcr.io/$PROJECT_ID/$IMAGE:$GITHUB_SHA
         #./kustomize build . | kubectl apply -f -
         #kubectl rollout status deployment/$DEPLOYMENT_NAME
