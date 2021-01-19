@@ -57,7 +57,7 @@ jobs:
         curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
     # Deploy the Docker image to the GKE cluster
     - name: Deploy
-        run: |
+      run: |-
         gcloud container clusters get-credentials cluster1 \
           --zone us-central1-c \
           --project careful-ensign-302119
