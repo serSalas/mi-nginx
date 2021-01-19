@@ -56,8 +56,8 @@ jobs:
       run: |
         curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
     # Deploy the Docker image to the GKE cluster
-#    - name: Deploy
- #     run: |-
+    - name: Deploy
+      run: |-
   #      gcloud container clusters get-credentials cluster1 \
    #       --zone us-central1-c \
     #      --project careful-ensign-302119
@@ -70,10 +70,11 @@ jobs:
         #./kustomize build . | kubectl apply -f -
         #kubectl rollout status deployment/$DEPLOYMENT_NAME
         #kubectl get services -o wide
-    - name: kubectl - Google Cloud GKE cluster.
-      uses: ameydev/gke-kubectl-action@master
-      env:
-        PROJECT_ID: careful-ensign-302119
-        APPLICATION_CREDENTIALS: ${{ secrets.GCLOUD_AUTH }}
-        CLUSTER_NAME: cluster1
-        ZONE_NAME: us-central1-c
+#    - name: kubectl - Google Cloud GKE cluster.
+ #     uses: ameydev/gke-kubectl-action@master
+  #    env:
+   #     PROJECT_ID: careful-ensign-302119
+    #    APPLICATION_CREDENTIALS: ${{ secrets.GCLOUD_AUTH }}
+     #   CLUSTER_NAME: cluster1
+      #  ZONE_NAME: us-central1-c
+	gcloud container clusters get-credentials cluster1 --zone us-central1-c --project careful-ensign-302119 && gcloud components install kubectl && kubectl -n default set image deployment/nginx-2 mi-nginx-1=gcr.io/careful-ensign-302119/github.com/sersalas/mi-nginx:latest 
