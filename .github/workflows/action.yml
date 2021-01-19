@@ -61,7 +61,7 @@ jobs:
         gcloud container clusters get-credentials cluster1 \
           --zone us-central1-c \
           --project careful-ensign-302119
-        helm upgrade careful-ensign-302119 careful-ensign-cluster/ \
+        helm upgrade careful-ensign-302119 careful-ensign-302119-cluster/ \
           --set randocats.image.tag=$GITHUB_SHA \
           --wait
         kubectl rollout status deployment/nginx-2
