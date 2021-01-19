@@ -9,8 +9,8 @@ env:
   PROJECT_ID: {{ secrets.GKE_PROJECT }}
   GKE_CLUSTER: cluster1
   GKE_ZONE: us-central1-c
-  DEPLOYMENT_NAME:nginx-2
-  IMAGE:mio-ngnix
+  DEPLOYMENT_NAME: nginx-2
+  IMAGE: mio-ngnix
 
 jobs:
   setup-build-publish-deploy:
