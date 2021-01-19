@@ -62,7 +62,7 @@ jobs:
           --zone us-central1-c \
           --project careful-ensign-302119
         helm upgrade careful-ensign-302119 careful-ensign-302119-cluster/ \
-        --set randocats.image.tag=$GITHUB_SHA \
+        #--set randocats.image.tag=$GITHUB_SHA \
         --wait
         #kubectl rollout status deployment/nginx-2
         #kubectl get services -o wide	
