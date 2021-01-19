@@ -62,10 +62,10 @@ jobs:
           --zone us-central1-c \
           --project careful-ensign-302119
         helm upgrade careful-ensign-302119 careful-ensign-302119-cluster/ \
-          --set randocats.image.tag=$GITHUB_SHA \
-          --wait
-        kubectl rollout status deployment/nginx-2
-        kubectl get services -o wide	
+        --set randocats.image.tag=$GITHUB_SHA \
+        --wait
+        #kubectl rollout status deployment/nginx-2
+        #kubectl get services -o wide	
         #./kustomize edit set image gcr.io/PROJECT_ID/IMAGE:TAG=gcr.io/$PROJECT_ID/$IMAGE:$GITHUB_SHA
         #./kustomize build . | kubectl apply -f -
         #kubectl rollout status deployment/$DEPLOYMENT_NAME
