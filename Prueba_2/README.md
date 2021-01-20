@@ -58,5 +58,5 @@
           							     -w= "$PWD" \
 								     docker/compose:1.24.0 up*
   
-  d. Con el comando ejecutandose abrir en navegador la página *http://<IP-externa>:8000* para backend y http://<IP-externa>:3000 para frontend.
+   * Con el comando ejecutandose abrir en navegador la página *http://[IP-externa]:8000* para backend y http://<IP-externa>:3000 para frontend.
 
