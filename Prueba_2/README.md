@@ -44,7 +44,7 @@
   * En la terminal descargar el código con los archivos dockerfile y el docker-compose correspondiente con:  *git clone https://github.com/serSalas/mi-nginx.git*
 
 
-4. Ejecutar Docker Compose:
+4. **Ejecutar Docker Compose:**
   
   * Descargar y ejecutar imagen de Docker Compose:  docker run docker/compose:1.24.0 version
   
