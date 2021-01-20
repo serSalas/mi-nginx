@@ -9,45 +9,48 @@
 
 #### Instrucciones de compilación y despliegue GCP:
 
-1. Crear una nueva instancia de Compute Engine usando la imagen estable de Container-Optimized OS:
+1. **Crear una nueva instancia de Compute Engine usando la imagen estable de Container-Optimized OS:**
 
-  a. Abrir Consola Cloud de GCP.
+  * Abrir Consola Cloud de GCP.
 
-  b. Crear una nueva instancia de Compute Engine.
+  * Crear una nueva instancia de Compute Engine.
 
-  c. Seleccionar la Zone (zona) deseada, por ejemplo us-central1-c.
+  * Seleccionar la Zone (zona) deseada, por ejemplo us-central1-c.
 
-  d. Seleccionar el tipo de máquina (Machine type) deseada, por ejemplo e2-medium.
+  * Seleccionar el tipo de máquina (Machine type) deseada, por ejemplo e2-medium.
 
-  e. Cambiar el Boot disk a "Container-Optimized OS stable".
+  * Cambiar el Boot disk a "Container-Optimized OS stable".
 
-  f. Verificar que la sección de Firewall la opción de "HTTP traffic" tildada.
+  * Verificar que la sección de Firewall la opción de "HTTP traffic" tildada.
 
-  g. Hacer clic en el botón "Create" para crear la instancia.
+  * Hacer clic en el botón "Create" para crear la instancia.
 
-2. Habilitar los puertos necesarios para visualizar tanto Backend como Frontend:
+
+2. **Habilitar los puertos necesarios para visualizar tanto Backend como Frontend:**
+
+  * En la lista de MV que se encuentra en "Compute Engine > VM instances" seleccionar los detalles de la MV creada haciendo clic sobre el nombre de la instancia.
  
-  a. En la lista de MV que se encuentra en "Compute Engine > VM instances" seleccionar los detalles de la MV creada haciendo clic sobre el nombre de la instancia.
+  * Dirigirse a sección "Network interfaces" y hacer clic en el botón "View details". Nos dirigirá al producto VPC network.
  
-  b. Dirigirse a sección "Network interfaces" y hacer clic en el botón "View details". Nos dirigirá al producto VPC network.
+  * Dirigirse a sección Firewall and route details, seleccionar pestaña "Firewall Rules".
  
-  c. Dirigirse a sección Firewall and route details, seleccionar pestaña "Firewall Rules".
- 
-  d. Seleccionar la regla correspondiente a HTTP para nuestra instancia y editarla para que permita la conexión al puerto 3000 y 8000.
+  * Seleccionar la regla correspondiente a HTTP para nuestra instancia y editarla para que permita la conexión al puerto 3000 y 8000.
 
-3. Descargar el código a compilar y desplegar en la instancia recién creada:
+
+3. **Descargar el código a compilar y desplegar en la instancia recién creada:**
   
-  a. En la lista de MV que se encuentra en "Compute Engine > VM instances" seleccionar el botón SSH para abrir una terminal conectada a la MV.
+  * En la lista de MV que se encuentra en "Compute Engine > VM instances" seleccionar el botón SSH para abrir una terminal conectada a la MV.
   
-  b. En la terminal descargar el código con los archivos dockerfile y el docker-compose correspondiente con:  *git clone https://github.com/serSalas/mi-nginx.git*
+  * En la terminal descargar el código con los archivos dockerfile y el docker-compose correspondiente con:  *git clone https://github.com/serSalas/mi-nginx.git*
+
 
 4. Ejecutar Docker Compose:
   
-  a. Descargar y ejecutar imagen de Docker Compose:  docker run docker/compose:1.24.0 version
+  * Descargar y ejecutar imagen de Docker Compose:  docker run docker/compose:1.24.0 version
   
-  b. Asegurarse que tu ubicación sea un directorio con permisos de escritura.
+  * Asegurarse que tu ubicación sea un directorio con permisos de escritura.
   
-  c. Ejeutar Docker compose del código anteriormente descargado con: 
+  * Ejeutar Docker compose del código anteriormente descargado con: 
 
 								    *docker run --rm \
                                                                      -v /var/run/docker.sock:/var/run/docker.sock \
