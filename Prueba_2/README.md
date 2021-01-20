@@ -47,11 +47,13 @@
   
   b. Asegurarse que tu ubicación sea un directorio con permisos de escritura.
   
-  c. Ejeutar Docker compose del código anteriormente descargado con: docker run --rm \
-                                                                     -v /var/run/docker.sock:/var/run/docker.sock \
-								     -v "$PWD:$PWD" \
-          							     -w= "$PWD" \
-								     docker/compose:1.24.0 up
+  c. Ejeutar Docker compose del código anteriormente descargado con: 
+
+								    *docker run --rm \\
+                                                                     -v /var/run/docker.sock:/var/run/docker.sock \\
+								     -v "$PWD:$PWD" \\
+          							     -w= "$PWD" \\
+								     docker/compose:1.24.0 up*
   
-  d. Con el comando ejecutandose abrir en navegador la página http://<IP-externa>:8000 para backend y http://<IP-externa>:3000 para frontend.
+  d. Con el comando ejecutandose abrir en navegador la página *http://<IP-externa>:8000* para backend y http://<IP-externa>:3000 para frontend.
 
