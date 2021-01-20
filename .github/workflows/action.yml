@@ -7,10 +7,7 @@ on:
 
 #environment variables
 env:
-  #PROJECT_ID: {{ secrets.GCP_PROJECT_ID }}
   PROJECT_ID: ${{ secrets.GKE_PROJECT }}
-  # GKE_CLUSTER: cluster1    
-  #GKE_ZONE: us-central1-c  
   DEPLOYMENT_NAME: nginx-2 
   IMAGE: mio-nginx
 
@@ -29,17 +26,12 @@ jobs:
       with:
         version: '290.0.1'
         service_account_key: ${{ secrets.GKE_SA_KEY }}
-        project_id: ${{ secrets.GCP_PROJECT_ID }}
-        # project_id: ${{ secrets.GKE_PROJECT }}
+        project_id: $PROJECT_ID
 
     # Configure Docker to use the gcloud command-line tool as a credential
     # helper for authentication
     - run: |-
         gcloud --quiet auth configure-docker
-
-    # Get the GKE credentials so we can deploy to the cluster
-    # - run: |-
-    #    gcloud container clusters get-credentials "$GKE_CLUSTER" --zone "$GKE_ZONE"
 
     # Build the Docker image
     - name: Build
