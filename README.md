@@ -17,15 +17,15 @@ Se describe a continuación las distintas etapas del pipeline:
 
  1. Realiza un Setup del GCloud CLI
 
- 2. Cofigura docker para usar la herramienta de linea de comandos de gcloud como una credencial de ayuda para la autenticación.
+ 2. Configura docker para usar la herramienta de linea de comandos de gcloud como una credencial de ayuda para la autenticación.
 
  3. Construye imagen de Docker (Build).
 
- 4. Publica imagen de Docker en repositorio (gcr.io)
+ 4. Publica imagen de Docker en repositorio (gcr.io).
 
  5. Despliega imagen en una instancia de Google Cloud Run de GCP permitiendo el acceso público del despliegue.
 
-Para este caso, se puede revisar el deployment desde https://careful-ensign-302119-sqkamrdv4a-uc.a.run.app/
+Para este caso, se puede revisar el deployment desde https://careful-ensign-302119-sqkamrdv4a-uc.a.run.app/ .
 
 
 Observaciones: las variables de entorno se define una parte dentro del archivo action.yml y otra desde los secrets de github.
