@@ -1,17 +1,19 @@
-name: Build and Deploy to GKE
+name: Build and Deploy 
 
 on:
   push:
     branches:
     - main
 
+#environment variables
 env:
   PROJECT_ID: ${{ secrets.GKE_PROJECT }}
   GKE_CLUSTER: cluster1    
   GKE_ZONE: us-central1-c  
-  DEPLOYMENT_NAME: nginx-2 # TODO: update to deployment name
+  DEPLOYMENT_NAME: nginx-2 
   IMAGE: mio-nginx
 
+#jobs: setup, build, publish and deploy
 jobs:
   setup-build-publish-deploy:
     name: Setup, Build, Publish, and Deploy
@@ -22,11 +24,11 @@ jobs:
       uses: actions/checkout@v2
 
     # Setup gcloud CLI
-    - uses: google-github-actions/setup-gcloud@master
-      with:
-        version: '290.0.1'
-        service_account_key: ${{ secrets.GKE_SA_KEY }}
-        project_id: ${{ secrets.GKE_PROJECT }}
+    # - uses: google-github-actions/setup-gcloud@master
+    #  with:
+    #    version: '290.0.1'
+    #    service_account_key: ${{ secrets.GKE_SA_KEY }}
+    #    project_id: ${{ secrets.GKE_PROJECT }}
 
     # Configure Docker to use the gcloud command-line tool as a credential
     # helper for authentication
@@ -34,8 +36,8 @@ jobs:
         gcloud --quiet auth configure-docker
 
     # Get the GKE credentials so we can deploy to the cluster
-    - run: |-
-        gcloud container clusters get-credentials "$GKE_CLUSTER" --zone "$GKE_ZONE"
+    # - run: |-
+    #    gcloud container clusters get-credentials "$GKE_CLUSTER" --zone "$GKE_ZONE"
 
     # Build the Docker image
     - name: Build
