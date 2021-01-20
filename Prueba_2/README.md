@@ -1,39 +1,6 @@
-<img src="https://i.ibb.co/VM5MzBT/craftech-logo3.png=150x" width="250" height="250">
-
-#### Prueba 1 - Diagrama de Red
-
-Produzca un diagrama de red (puede utilizar lucidchart) de una aplicación web en GCP o AWS y escriba una descripción de texto de 1/2 a 1 página de sus elecciones y arquitectura.
-
-El diseño debe soportar:
-
-Cargas variables	
-Contar con HA (alta disponibilidad)
-Frontend en Js
-La aplicación consume 2 microservicios externos
-Una base de datos relacional y una no relacional
- 
-El diagrama debe hacer un mejor uso de las soluciones distribuidas.
-
-#### Prueba 2 - Despliegue de una aplicación Django y React.js
-
-Elaborar el deployment dockerizado de una aplicación en django (backend) con frontend en React.js contenida en el repositorio.
-
-Se deben entregar los Dockerfiles pertinentes para elaborar el despliegue y justificar la forma en la que elabora el deployment (supervisor, scripts, docker-compose, kubernetes, etc)
-
-Subir todo lo elaborado a un repositorio (github, gitlab, bitbucket, etc). En el repositorio se debe incluir el código de la aplicación  y un archivo README.md con instrucciones detalladas para compilar y desplegar la aplicación, tanto en una PC local como en la nube (AWS o GCP).
-
-#### Prueba 3 - CI/CD
-
-Dockerizar un nginx custom con el index deseado.
-Elaborar un pipeline que buildee la nueva imagen y la actualize en la plataforma elegida. (docker-compose, swarm, kuberenetes, etc.)
-Para la creacion del CI/CD se puede utilizar cualquier plataforma (CircleCI, Gitlab, Github, Bitbucket.)
-
-**Requisitos y deseables:**
-
-La solución al ejercicio debe mostrarnos que usted puede:
-
-Automatizar la parte del proceso de despliegue.
-usar conceptos de CI para aprovisionar el software necesario para que los entregables se ejecuten
-use cualquier herramienta de CI de su elección para implementar el entregable
-
-
+instrucciones de compilación y despliegue PC local:
+1) clonar repositorio con:  git clone https://github.com/serSalas/mi-nginx.git
+2) acceder a directorio que contenga docker-compose.yml con:  cd Prueba_2/
+3) ejecutar el archivo de docker compose y despegarse de esta ejecución:  docker-compose up -d
+4) al finalizar el punto anterior acceder a un navegador y acceder a localhost:3000 para frontend y localhost:8000 para backend
+ejecutar el archivo de docker compose y despegarse de esta ejecución:  docker-compose up -d
